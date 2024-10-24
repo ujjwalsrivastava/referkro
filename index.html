@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        text-align: center;
+    }
+    h1 {
+        color: #333;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    .container2 {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="text"], input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    #download {
+        background-color: #008CBA;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    #download:hover {
+        background-color: #005f6b;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Referkro.com new</h1>
+        <p>Fill below form to get Referral.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0T6i1qTgE8xL1OieeKTDo3MHmcwpSMzZjwKystaNRRCW3qg/viewform?usp=sf_link" target="_blank" class="btn">Fill Form</a>
+        <p>Before referring any candidate, please verify them by your end. Referkro.com does not take any responsibility.</p>
+        <p>After clicking on Find, please wait for 1 minute, then the download button will be visible.</p>    
+    </div>
+    
+    <div class="container2">
+        <h2>Find Candidate to Refer</h2>
+        <form id="dataForm">
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" required><br><br>
+            <label for="experience">Experience:</label>
+            <input type="text" id="experience" name="experience" required><br><br>
+            <input type="submit" value="Find">
+        </form>
+    </div>
+      
+    <div id="downloadLink" style="display: none;">
+        <a id="download" href="#">Download Matching Data</a>
+    </div>
+    
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const skills = document.getElementById('skills').value;
+            const experience = document.getElementById('experience').value;
+            fetchMatchingData(skills, experience);
+        });
+
+        function fetchMatchingData(skills, experience) {
+            const googleAppsScriptUrl = `https://script.google.com/macros/s/AKfycbx3JN7BrnJk16ii6KeTfC56dHWBgjVaPislZuHt345pG8AV_I9y_7lp9OBW2RO6Fbd-/exec?skills=${skills}&experience=${experience}`;
+                                                                         
+            
+            fetch(googleAppsScriptUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.success) {
+                        const downloadLink = document.getElementById('download');
+                        downloadLink.href = data.url;
+                        document.getElementById('downloadLink').style.display = 'block';
+                    } else {
+                        alert('No matching data found.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
