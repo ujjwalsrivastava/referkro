@@ -64,6 +64,27 @@
     #download:hover {
         background-color: #005f6b;
     }
+    select, input[type="text"], input[type="submit"] {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 10px;
+       border-radius: 5px;
+       border: 1px solid #ccc;
+       box-sizing: border-box;
+    }
+    
+    select {
+        background-color: #fff;
+        color: #333;
+        appearance: none; /* Remove default dropdown arrow */
+        font-size: 16px;
+    }
+    
+    select:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
 </style>
 <body>
     <div class="container">
@@ -80,7 +101,16 @@
             <label for="skills">Skills:</label>
             <input type="text" id="skills" name="skills" required><br><br>
             <label for="experience">Experience:</label>
-            <input type="text" id="experience" name="experience" required><br><br>
+            <select id="experience" name="experience" required>
+                <option value="">Select Experience</option>
+                <option value="1-2">1-2</option>
+                <option value="3-4">3-4</option>
+                <option value="5-6">5-6</option>
+                <option value="6-8">6-8</option>
+                <option value="9-10">9-10</option>
+                <option value="11-12">11-12</option>
+                <option value="13-14">13-14</option>
+            </select><br>
             <input type="submit" value="Find">
         </form>
     </div>
