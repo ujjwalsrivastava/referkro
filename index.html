@@ -4,89 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Form</title>
-</head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-        text-align: center;
-    }
-    h1 {
-        color: #333;
-    }
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-        background-color: #0056b3;
-    }
-    .container2 {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    input[type="text"], input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #45a049;
-    }
-    #download {
-        background-color: #008CBA;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    #download:hover {
-        background-color: #005f6b;
-    }
-    select, input[type="text"], input[type="submit"] {
-       width: 100%;
-       padding: 10px;
-       margin-bottom: 10px;
-       border-radius: 5px;
-       border: 1px solid #ccc;
-       box-sizing: border-box;
-    }
-    
-    select {
-        background-color: #fff;
-        color: #333;
-        appearance: none; /* Remove default dropdown arrow */
-        font-size: 16px;
-    }
-    
-    select:focus {
-        border-color: #007bff;
-        outline: none;
-    }
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        
+        .navbar a:hover {
+            background-color: #555;
+        }
 
-</style>
+        /* Main container styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Form container */
+        .container2 {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Form input and button styles */
+        input[type="text"], input[type="submit"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        #download {
+            background-color: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        #download:hover {
+            background-color: #005f6b;
+        }
+        
+        select {
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+</head>
 <body>
+
+    <!-- Navbar with Home and Blog links -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a> <!-- Link to your blog page -->
+    </div>
+
     <div class="container">
         <h1>Referkro.com new</h1>
         <p>Fill below form to get Referral.</p>
@@ -110,13 +141,13 @@
                 <option value="9-10">9-10</option>
                 <option value="11-12">11-12</option>
                 <option value="13-14">13-15</option>
-                <option value="13-14">16-18</option>
-                <option value="13-14">19-20</option>
-                <option value="13-14">21-22</option>
-                <option value="13-14">23-25</option>
-                <option value="13-14">26-30</option>
-                <option value="13-14">31-35</option>
-                <option value="13-14">36-40</option>
+                <option value="16-18">16-18</option>
+                <option value="19-20">19-20</option>
+                <option value="21-22">21-22</option>
+                <option value="23-25">23-25</option>
+                <option value="26-30">26-30</option>
+                <option value="31-35">31-35</option>
+                <option value="36-40">36-40</option>
             </select><br>
             <input type="submit" value="Find">
         </form>
@@ -136,8 +167,6 @@
 
         function fetchMatchingData(skills, experience) {
             const googleAppsScriptUrl = `https://script.google.com/macros/s/AKfycbx3JN7BrnJk16ii6KeTfC56dHWBgjVaPislZuHt345pG8AV_I9y_7lp9OBW2RO6Fbd-/exec?skills=${skills}&experience=${experience}`;
-                                                                         
-            
             fetch(googleAppsScriptUrl)
                 .then(response => {
                     if (!response.ok) {
