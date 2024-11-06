@@ -14,7 +14,7 @@ If 3rd input is present in specific (row,column) of input , than it will not pla
 
 Also if 3rd input is present in that specific(row,column) 3\*3 grid like , suppose 2 is the input , than here -
 
-![A description of the image](../05112024p2.png)
+![A description of the image](../images/05112024p2.png)
 
 As you can see in above image it is present in 3*3 grid , that's why , we can't put 2 in any specific(row,column) of that 3*3 grid.
 
