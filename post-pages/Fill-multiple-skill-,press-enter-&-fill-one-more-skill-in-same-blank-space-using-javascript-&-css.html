@@ -20,11 +20,6 @@
       border-radius: 5px;
     }
   </style>
-</head>
-<body>
-  <h1>Markdown Viewer</h1>
-  <div id="markdown-container"></div>
-
   <!-- Marked.js for Markdown Parsing -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"
@@ -33,15 +28,25 @@
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
   ></script>
+</head>
+<body>
+  <h1>Markdown Viewer</h1>
+  <div id="markdown-container"></div>
+
+  
 
   <script>
     // Load the Markdown file
     fetch('../posts/post5.md') // Replace 'example.md' with your actual file name
-      .then(response => response.text())
+       .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
       .then(markdown => {
         // Convert Markdown to HTML
-        const htmlContent = marked(markdown);
-        document.getElementById('post-content').innerHTML = htmlContent;
+        document.getElementById('post-content').innerHTML = marked.parse(markdown);
 
         // Highlight code blocks
         Prism.highlightAll();
