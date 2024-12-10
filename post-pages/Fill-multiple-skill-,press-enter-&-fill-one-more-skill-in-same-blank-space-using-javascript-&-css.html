@@ -41,7 +41,7 @@
       .then(markdown => {
         // Convert Markdown to HTML
         const htmlContent = marked(markdown);
-        document.getElementById('markdown-container').innerHTML = htmlContent;
+        document.getElementById('post-content').innerHTML = htmlContent;
 
         // Highlight code blocks
         Prism.highlightAll();
