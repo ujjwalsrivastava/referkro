@@ -3,20 +3,22 @@
 HTML Code -:
 
 ```html
-<!-- s1 -->
-<div id="skillsContainer" class="skills-container">
-  <!-- A text input (skillsInput) where users type their skills. -->
-  <input
-    type="text"
-    id="skillsInput"
-    name="skillsInput"
-    placeholder="Type and press Enter"
-    required
-  />
-</div>
-<!-- A hidden input field (skills) that stores all skills as a comma-separated string. This field is included when the form is submitted. -->
-<input type="hidden" id="skills" name="skills" />
-<br /><br />
+<pre><code class="language-html">
+    &lt;!-- s1 --&gt;
+    &lt;div id="skillsContainer" class="skills-container"&gt;
+      &lt;!-- A text input (skillsInput) where users type their skills. --&gt;
+      &lt;input
+        type="text"
+        id="skillsInput"
+        name="skillsInput"
+        placeholder="Type and press Enter"
+        required
+      /&gt;
+    &lt;/div&gt;
+    &lt;!-- A hidden input field (skills) that stores all skills as a comma-separated string. This field is included when the form is submitted. --&gt;
+    &lt;input type="hidden" id="skills" name="skills" /&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  </code></pre>
 ```
 
 JAVASCRIPT Code -:
