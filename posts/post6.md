@@ -1,6 +1,6 @@
 # ERROR finding license for selected module in Activeworkspace while logging
 
-![Error while logging in ActiveWorkspace](../images/20241225_114227.jpg)
+![Error while logging in ActiveWorkspace](../images/20241225_114227.png)
 
 Just Check below environment variable in VM :
 
