@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERROR finding license for selected module</title>
+  <!-- Prism.js CSS for Syntax Highlighting -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <!-- Marked.js for Markdown Parsing -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"
+  ></script>
+  <!-- Prism.js for Syntax Highlighting -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+  ></script>
+</head>
+<body>
+  <h1>Markdown Viewer</h1>
+  <<div id="post-content">Loading...</div>
+
+  
+
+  <script>
+    // Load the Markdown file
+    fetch('../posts/post6.md') // Replace 'example.md' with your actual file name
+       .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+      .then(markdown => {
+        // Convert Markdown to HTML
+        document.getElementById('post-content').innerHTML = marked.parse(markdown);
+
+        // Highlight code blocks
+        Prism.highlightAll();
+      })
+      .catch(error => console.error('Error loading Markdown:', error));
+  </script>
+</body>
+</html>
