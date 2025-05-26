@@ -1,5 +1,5 @@
 // Array of blog post filenames
-const posts = ["post1.md", "post2.md","post3.md","post4.md","post5.md","post6.md"]; // Add your post files here
+const posts = ["post1.md", "post2.md","post3.md","post4.md","post5.md","post6.md","post7.md"]; // Add your post files here
 
 // Function to display the list of blog posts
 function renderPostList() {
