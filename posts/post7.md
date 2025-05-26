@@ -52,6 +52,6 @@ Now you can see the generated code like :
 
 ![Folder of Code](26_13.JPG)
 
-Now you can write your custom logic of getter & setter here -
+Now you can write your custom logic of getter & setter here -->
 
 ![Write Code](26_14.JPG)
