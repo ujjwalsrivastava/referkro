@@ -30,7 +30,7 @@ Go to Rules->Extensions->New Extension Definition :
 
 ![Create Extension](26_7.JPG)
 
-Now give the name of the extension & on availablity column click on add :
+Now give the name of the extension & on availablity column click on add -:
 
 ![Give extension name](26_8.JPG)
 
