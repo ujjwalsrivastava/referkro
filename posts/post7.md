@@ -28,30 +28,30 @@ To proceed, you’ll first need to create a custom extension and then associate 
 
 Go to Rules->Extensions->New Extension Definition :
 
-![Create Extension](../images/26_7.JPG)
+![Create Extension](../images/26_7.JPG){ width=30% }
 
 Now give the name of the extension & on availablity column click on add -:
 
-![Give extension name](../images/26_8.JPG)
+![Give extension name](../images/26_8.JPG){ width=30% }
 
 Now choose Property , then give Business object name , property name & operation name :
 
-![Add Availablity](../images/26_9.JPG)
+![Add Availablity](../images/26_9.JPG){ width=30% }
 
 After adding the availablity , go on your business object , than on that custom property which you have created , on that go to extension attachment then click on add :
 
-![Adding Extension](../images/26-10.JPG)
+![Adding Extension](../images/26-10.JPG){ width=30% }
 
-![Extension](../images/26_11.JPG)
+![Extension](../images/26_11.JPG){ width=30% }
 
 Now go to Business Object - Right Click -> Generate Code -> C++ Classes :
 
-![Generate Code](../images/26_12.JPG)
+![Generate Code](../images/26_12.JPG){ width=30% }
 
 Now you can see the generated code like :
 
-![Folder of Code](../images/26_13.JPG)
+![Folder of Code](../images/26_13.JPG){ width=30% }
 
 Now you can write your custom logic of getter & setter here -->
 
-![Write Code](../images/26_14.JPG)
+![Write Code](../images/26_14.JPG){ width=30% }
