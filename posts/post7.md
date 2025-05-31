@@ -2,23 +2,23 @@
 
 First of all Just open properties of any business object
 
-<img src="../images/26_1.JPG" alt="Folder of Code" width="400"/>
+<img src="../images/26_1.JPG" alt="Folder of Code" width="600"/>
 
 Now click on add then choose Persistent
 
-![Types Of Properties](../images/26-2.JPG)
+<img src="../images/26-2.JPG" alt="Folder of Code" width="600"/>
 
 Now Click Next , then below tab will come , In the below tab give "Name" , "Display Name" , "Attribute Type" , "String Length" as -
 
-![Properties](../images/26-3.JPG)
+<img src="../images/26-3.JPG" alt="Folder of Code" width="600"/>
 
 Now Click Next , & you can create new library while clicking one new , then you can choose getter & setter like , also don't forget to click on published , as when you will click on published than only it will get visible in extension-
 
-![Choosing getter & setter](../images/26-4.JPG)
+<img src="../images/26_4.JPG" alt="Folder of Code" width="600"/>
 
 If you now look at the custom property you created, you'll find that under the 'Property Operations' section, both the 'set' and 'get' methods are already defined there :
 
-![get & set method](../images/26_5.JPG)
+<img src="../images/26_5.JPG" alt="Folder of Code" width="600"/>
 
 Up to this point, most developers should be able to follow along easily.
 Now comes the interesting part—the real challenge begins.
@@ -28,30 +28,30 @@ To proceed, you’ll first need to create a custom extension and then associate 
 
 Go to Rules->Extensions->New Extension Definition :
 
-![Create Extension](../images/26_7.JPG){ width=5% }
+<img src="../images/26_7.JPG" alt="Folder of Code" width="600"/>
 
 Now give the name of the extension & on availablity column click on add -:
 
-![Give extension name](../images/26_8.JPG){ width=5% }
+<img src="../images/26_8.JPG" alt="Folder of Code" width="600"/>
 
 Now choose Property , then give Business object name , property name & operation name :
 
-![Add Availablity](../images/26_9.JPG){ width=5% }
+<img src="../images/26_9.JPG" alt="Folder of Code" width="600"/>
 
 After adding the availablity , go on your business object , than on that custom property which you have created , on that go to extension attachment then click on add :
 
-![Adding Extension](../images/26-10.JPG){ width=5% }
+<img src="../images/26_10.JPG" alt="Folder of Code" width="600"/>
 
-![Extension](../images/26_11.JPG){ width=5% }
+<img src="../images/26_11.JPG" alt="Folder of Code" width="600"/>
 
 Now go to Business Object - Right Click -> Generate Code -> C++ Classes :
 
-![Generate Code](../images/26_12.JPG){ width=5% }
+<img src="../images/26_12.JPG" alt="Folder of Code" width="600"/>
 
 Now you can see the generated code like :
 
-![Folder of Code](../images/26_13.JPG){ width=5% }
+<img src="../images/26_13.JPG" alt="Folder of Code" width="600"/>
 
 Now you can write your custom logic of getter & setter here -->
 
-![Write Code](../images/26_14.JPG){ width=5% }
+<img src="../images/26_14.JPG" alt="Folder of Code" width="600"/>
