@@ -14,7 +14,7 @@ Now Click Next , then below tab will come , In the below tab give "Name" , "Disp
 
 Now Click Next , & you can create new library while clicking one new , then you can choose getter & setter like , also don't forget to click on published , as when you will click on published than only it will get visible in extension-
 
-<img src="../images/26_4.JPG" alt="Folder of Code" width="600"/>
+<img src="../images/26-4.JPG" alt="Folder of Code" width="600"/>
 
 If you now look at the custom property you created, you'll find that under the 'Property Operations' section, both the 'set' and 'get' methods are already defined there :
 
@@ -40,7 +40,7 @@ Now choose Property , then give Business object name , property name & operation
 
 After adding the availablity , go on your business object , than on that custom property which you have created , on that go to extension attachment then click on add :
 
-<img src="../images/26_10.JPG" alt="Folder of Code" width="600"/>
+<img src="../images/26-10.JPG" alt="Folder of Code" width="600"/>
 
 <img src="../images/26_11.JPG" alt="Folder of Code" width="600"/>
 
