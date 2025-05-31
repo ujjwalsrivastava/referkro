@@ -2,7 +2,6 @@
 
 First of all Just open properties of any business object
 
-![Properties Tab](../images/26_1.JPG)
 <img src="../images/26_1.JPG" alt="Folder of Code" width="400"/>
 
 Now click on add then choose Persistent
