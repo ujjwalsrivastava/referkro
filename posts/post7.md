@@ -1,4 +1,4 @@
-# How to create a persistent property in Teamceter ? Use getter & setter method in Persistent property of Teamcenter.
+# How to create a persistent property in Teamcenter ? Use getter & setter method in Persistent property of Teamcenter.
 
 First of all Just open properties of any business object
 
