@@ -1,5 +1,9 @@
 # How to add Content Tab in Active Workspace of Teamcenter.
 
+Content tab appears like :
+
+<img src="../images/3_7.JPG" alt="Folder of Code" width="600"/>
+
 You have to follow below 3 Steps to add content :
 1- Create Prefernce
 2- Update Global Constants
