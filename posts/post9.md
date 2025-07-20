@@ -1,4 +1,4 @@
-# Property on Item Revision to check if it contain the BOM Structure.
+# Property on Item Revision to check if it contain the BOM Structure in Teamcenter or ActiveWorkspace(AWC).
 
 You can Check It the Item contain the BOM Structure or not by just one property.
 
