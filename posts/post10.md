@@ -1,10 +1,10 @@
-# How to remove exclaimation mark on the text in tab of item revision in Teamcenter Richclient.
+# How to remove Exclamation mark on the text in tab of item revision in Teamcenter Richclient.
 
-If you come here than surely you are facing the problem of exclaimation mark in Teamcenter like :
+If you come here than surely you are facing the problem of Exclamation mark in Teamcenter like :
 
-<img src="../images/21_7_25_4_before.JPG" alt="Exclaimation Mark" width="600"/>
+<img src="../images/21_7_25_4_before.JPG" alt="Exclamation Mark" width="600"/>
 
-This exclaimation mark is coming because , teamcenter is not able to recognize your word, to make teamcenter recognize it you have to include your word in textserver.
+This Exclamation mark is coming because , teamcenter is not able to recognize your word, to make teamcenter recognize it you have to include your word in textserver.
 
 So open , en_US folder of textserver , you have to open your language folder , like i am using english so i am opening en_US like :
 
@@ -20,10 +20,10 @@ Than Click on Find All , It will display result like -
 
 <img src="../images/21_7_25_3.JPG" alt="Result" width="600"/>
 
-Now click on result & write your word there which you want to use without exclaimation mark & save the file.
+Now click on result & write your word there which you want to use without Exclamation mark & save the file.
 
-Now you can see your word without exclaimation mark like :
+Now you can see your word without Exclamation mark like :
 
-<img src="../images/21_7_25_5_After.JPG" alt="Exclaimation Mark" width="600"/>
+<img src="../images/21_7_25_5_After.JPG" alt="Exclamation Mark" width="600"/>
 
 Thanks for Reading !
