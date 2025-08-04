@@ -5,7 +5,7 @@
 Open the business object , which you want to see in the Project.
 Open the Operations tab , in that open ITEM_create operation -> Extension Attachment ->Add Post Action -> choose autoAssignToProject like:
 
-<img src="../images/4Au25_1.jpg" alt="Auto assignment to project" width="600"/>
+<img src="../images/4Au25_1.JPG" alt="Auto assignment to project" width="600"/>
 
 Now if you want to display a business object in a project , than you can follow above step.
 
