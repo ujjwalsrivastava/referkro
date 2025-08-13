@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fast Cartoonizer</title>
+<style>
+  body { font-family: sans-serif; background: #111; color: #eee; text-align: center; }
+  .container { max-width: 900px; margin: auto; padding: 20px; }
+  canvas { background: #222; max-width: 100%; border-radius: 8px; }
+  .controls { margin-top: 10px; }
+  button, input[type="range"] { margin: 5px; padding: 6px 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Fast Cartoonizer</h1>
+  <input type="file" id="fileInput" accept="image/*"><br>
+  
+  <div class="controls">
+    <label>Posterize: <input type="range" id="levels" min="2" max="12" value="6"></label>
+    <label>Edge Strength: <input type="range" id="edgeStrength" min="0" max="2" step="0.1" value="1"></label>
+    <button id="applyBtn">Apply Cartoon</button>
+    <button id="downloadBtn">Download</button>
+  </div>
+  
+  <h3>Original</h3>
+  <canvas id="origCanvas"></canvas>
+  <h3>Cartoon</h3>
+  <canvas id="outCanvas"></canvas>
+</div>
+
+<script>
+const fileInput = document.getElementById("fileInput");
+const levelsInput = document.getElementById("levels");
+const edgeInput = document.getElementById("edgeStrength");
+const origCanvas = document.getElementById("origCanvas");
+const outCanvas = document.getElementById("outCanvas");
+const oCtx = origCanvas.getContext("2d");
+const outCtx = outCanvas.getContext("2d");
+
+let img = new Image();
+let imgLoaded = false;
+
+fileInput.addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  img = new Image();
+  img.onload = () => {
+    const maxW = 800;
+    const scale = Math.min(1, maxW / img.width);
+    const w = Math.round(img.width * scale);
+    const h = Math.round(img.height * scale);
+    origCanvas.width = outCanvas.width = w;
+    origCanvas.height = outCanvas.height = h;
+    oCtx.clearRect(0,0,w,h);
+    oCtx.drawImage(img, 0, 0, w, h);
+    outCtx.drawImage(img, 0, 0, w, h);
+    imgLoaded = true;
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
+document.getElementById("applyBtn").addEventListener("click", () => {
+  if (!imgLoaded) return alert("Please choose an image first");
+  cartoonize();
+});
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  if (!imgLoaded) return;
+  const link = document.createElement("a");
+  link.download = "cartoon.png";
+  link.href = outCanvas.toDataURL("image/png");
+  link.click();
+});
+
+function cartoonize() {
+  const w = origCanvas.width;
+  const h = origCanvas.height;
+
+  // 1) Blur using GPU filter
+  outCtx.clearRect(0,0,w,h);
+  outCtx.filter = "blur(2px)";
+  outCtx.drawImage(origCanvas,0,0,w,h);
+  outCtx.filter = "none";
+
+  // 2) Posterize
+  let imgData = outCtx.getImageData(0,0,w,h);
+  posterize(imgData.data, parseInt(levelsInput.value));
+  outCtx.putImageData(imgData,0,0);
+
+  // 3) Edge detection
+  let edges = sobelEdge(oCtx.getImageData(0,0,w,h));
+  let cartoonData = outCtx.getImageData(0,0,w,h);
+  let buf = cartoonData.data;
+  let edgeStrength = parseFloat(edgeInput.value);
+  
+  for (let i=0; i<edges.length; i++) {
+    const e = Math.min(1, edges[i] * edgeStrength);
+    const idx = i*4;
+    buf[idx] *= (1 - e);
+    buf[idx+1] *= (1 - e);
+    buf[idx+2] *= (1 - e);
+  }
+  outCtx.putImageData(cartoonData,0,0);
+}
+
+function posterize(buf, levels) {
+  const step = 255 / (levels - 1);
+  for (let i=0; i<buf.length; i+=4) {
+    buf[i] = Math.round(Math.round(buf[i]/step) * step);
+    buf[i+1] = Math.round(Math.round(buf[i+1]/step) * step);
+    buf[i+2] = Math.round(Math.round(buf[i+2]/step) * step);
+  }
+}
+
+function sobelEdge(imageData) {
+  const w = imageData.width, h = imageData.height;
+  const src = imageData.data;
+  const gray = new Float32Array(w*h);
+  for (let i=0;i<w*h;i++) {
+    const j = i*4;
+    gray[i] = 0.299*src[j] + 0.587*src[j+1] + 0.114*src[j+2];
+  }
+  const out = new Float32Array(w*h);
+  const gx = [-1,0,1,-2,0,2,-1,0,1];
+  const gy = [-1,-2,-1,0,0,0,1,2,1];
+  for (let y=1;y<h-1;y++) {
+    for (let x=1;x<w-1;x++) {
+      let sx=0, sy=0, k=0;
+      for (let ky=-1;ky<=1;ky++) {
+        for (let kx=-1;kx<=1;kx++) {
+          const val = gray[(y+ky)*w + (x+kx)];
+          sx += val * gx[k];
+          sy += val * gy[k];
+          k++;
+        }
+      }
+      const mag = Math.sqrt(sx*sx + sy*sy) / 255;
+      out[y*w + x] = mag;
+    }
+  }
+  return out;
+}
+</script>
+</body>
+</html>
