@@ -1,5 +1,3 @@
-md_content = '''
-
 # Why Shares Are Booming for Maruti, Nestlé & Hero MotoCorp (August 2025)
 
 ## Introduction
